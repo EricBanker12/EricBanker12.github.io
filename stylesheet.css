@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: black;
+    color: white;
+    min-width: 360px;
+}
+
+nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+nav a:hover {
+    background-color: gray;
+}
+
+a {
+    color: skyblue;
+}
+
+p {
+    max-width: 80ch;
+}
+
+textarea {
+    width: 80ch;
+    height: 20ch;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    section {
+        width: 48%;
+        float: left;
+        margin-right: 2%;
+    }
+}
+
+#input_size {
+    width: 6ch;
+    margin-left: 1ch;
+    margin-right: 1ch;
+}
+
+#input_fcolor {
+    width: 3ch;
+    margin-left: 1ch;
+    margin-right: 1ch;
+}
+
+#input_bcolor {
+    width: 3ch;
+    margin-left: 1ch;
+    margin-right: 1ch;
+}
+
+#download {
+    display: none;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Steganography Example Site</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="javascript.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="index.html">About Steganography</a>
+            &nbsp;
+            <a href="encrypt.html">Encrypt</a>
+            &nbsp;
+            <a href="decrypt.html">Decrypt</a>
+        </nav>
+        <hr>
+        <article>
+            <h1>Encrypt</h1>
+            <p>Upload an image file, type your hidden message, and adjust the colors to best hide it inside the image.</p>
+        </article>
+        <section>
+            <h2>Input</h2>
+            <canvas id="input_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
+            <input id="cover_img" type="file" accept="image/*" onchange="input_image()"><br>
+            <br>
+            <textarea id="input_text" oninput="text_to_image()"></textarea><br>
+            Size: <input id="input_size" type="number" value="18" oninput="text_to_image()">
+            Colors: <input id="input_fcolor" type="color" value="#808080" onchange="text_to_image()">
+            <input id="input_bcolor" type="color" value="#c0c0c0" onchange="text_to_image()">
+            <input type="submit" style="float: right;" onclick="encrypt()">
+        </section>
+        <section>
+            <h2>Output</h2>
+            <canvas id="output_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
+            <a id="download" href="" download="download">Download</a><br>
+            <canvas id="text_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
+        </section>
+    </body>
+</html>
