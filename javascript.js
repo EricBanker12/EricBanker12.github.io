@@ -16,13 +16,13 @@ function input_image() {
             setTimeout(function() {
                 input_canvas.width = img.width
                 input_canvas.height = img.height
+                in_context.drawImage(img,0,0)
                 if (document.getElementById("input_text")) {
                     text_to_image()
                 }
                 else {
                     decrypt()
                 }
-                in_context.drawImage(img,0,0)
             },1)
         }
         reader.readAsDataURL(cover_img)
