@@ -1,6 +1,4 @@
-//let input_canvas = document.getElementById("input_canvas")
-//let text_canvas = document.getElementById("text_canvas")
-//let output_canvas = document.getElementById("output_canvas")
+let timeout
 
 function input_image() {
     let cover_img = document.getElementById("cover_img")
@@ -51,27 +49,31 @@ function text_to_image() {
         // to do: wordwrap
         counter += 1
     }
-    encrypt()
+    // limit performance hit from encrypt func
+    clearTimeout(timeout)
+    timeout = setTimeout(encrypt, 500, true)
 }
 
-function encrypt() {
-    let input_canvas = document.getElementById("input_canvas"),
-        in_context = input_canvas.getContext("2d", {alpha: false})
-    let text_canvas = document.getElementById("text_canvas"),
-        text_canvas_context = text_canvas.getContext("2d", {alpha: false})
-    let output_canvas = document.getElementById("output_canvas"),
-        output_canvas_context = output_canvas.getContext("2d", {alpha: false})
-    output_canvas.width = input_canvas.width
-    output_canvas.height = input_canvas.height
-    let high = in_context.getImageData(0, 0, input_canvas.width, input_canvas.height)
-    let low = text_canvas_context.getImageData(0, 0, text_canvas.width, text_canvas.height)
-    for (let i = 0; i < high.data.length; i += 1) {
-        high.data[i] = ((high.data[i] >> 4) << 4) | (low.data[i] >> 4)
+function encrypt(isTime=false) {
+    if (isTime) {
+        let input_canvas = document.getElementById("input_canvas"),
+            in_context = input_canvas.getContext("2d", {alpha: false})
+        let text_canvas = document.getElementById("text_canvas"),
+            text_canvas_context = text_canvas.getContext("2d", {alpha: false})
+        let output_canvas = document.getElementById("output_canvas"),
+            output_canvas_context = output_canvas.getContext("2d", {alpha: false})
+        output_canvas.width = input_canvas.width
+        output_canvas.height = input_canvas.height
+        let high = in_context.getImageData(0, 0, input_canvas.width, input_canvas.height)
+        let low = text_canvas_context.getImageData(0, 0, text_canvas.width, text_canvas.height)
+        for (let i = 0; i < high.data.length; i += 1) {
+            high.data[i] = ((high.data[i] >> 4) << 4) | (low.data[i] >> 4)
+        }
+        output_canvas_context.putImageData(high, 0, 0)
+        let download = document.getElementById("download")
+        download.href = output_canvas.toDataURL('image/png')
+        download.style = "display: block;"
     }
-    output_canvas_context.putImageData(high, 0, 0)
-    let download = document.getElementById("download")
-    download.href = output_canvas.toDataURL('image/png')
-    download.style = "display: block;"
 }
 
 function decrypt() {

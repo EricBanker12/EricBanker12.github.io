@@ -2,34 +2,37 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Steganography Example Site</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="javascript.js"></script>
     </head>
-    <body>
-        <nav>
-            <a href="index.html">About Steganography</a>
-            &nbsp;
-            <a href="encrypt.html">Encrypt</a>
-            &nbsp;
-            <a href="decrypt.html">Decrypt</a>
+    <body class="container">
+        <nav class="row">
+            <a href="index.html" class="col-sm-4">About Steganography</a>
+            <a href="encrypt.html" class="col-sm-4">Encrypt</a>
+            <a href="decrypt.html" class="col-sm-4">Decrypt</a>
         </nav>
-        <hr>
-        <article>
+        <article class="row,col-12">
             <h1>Decrypt</h1>
             <p>Upload an image file with a hidden message and reveal it.</p>
         </article>
-        <section>
-            <h2>Input</h2>
-            <canvas id="input_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
-            <input id="cover_img" type="file" accept="image/*" onchange="input_image()">
-            <input type="submit" style="float: right;" onclick="decrypt()">
-        </section>
-        <section>
-            <h2>Output</h2>
-            <canvas id="output_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
-            <a id="download" href="" download="download">Download</a><br>
-        </section>
+        <div class="row">
+                <section class="col-lg-6">
+                <h2>Input</h2>
+                <canvas id="input_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
+                <input id="cover_img" type="file" accept="image/*" onchange="input_image()">
+                <input type="submit" style="float: right;" onclick="decrypt()">
+            </section>
+            <section class="col-lg-6">
+                <h2>Output</h2>
+                <canvas id="output_canvas" height="100px" width="600px">HTML5 not supported.</canvas><br>
+                <a id="download" href="" download="download">Download</a><br>
+            </section>
+        </div>
     </body>
 </html>
